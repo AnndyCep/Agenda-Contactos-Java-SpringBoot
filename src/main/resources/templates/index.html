@@ -1,0 +1,59 @@
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title> Listado Contactos </title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" 
+              integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    </head>
+    <body>
+        <nav class="navbar navbar-light bg-light">
+            <a class="navbar-text" href="/"> Lista Contactos </a>
+        </nav>      
+        
+        
+        <div class="container">
+            <div class="row">
+                <h2> Lista contactos </h2>
+            </div>
+            
+            
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellido</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Fecha Nacimiento</th>
+                        <th scope="col">Fecha Registro</th>
+                        <th scope="col">Accion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tbody>
+                    <tr th:each="todosContactos : ${listacontactos}">
+                        <th scope="row" th:text="${todosContactos.id_agenda}"></th>
+                        <td th:text="${todosContactos.nombre}"></td>
+                        <td th:text="${todosContactos.apellido}"></td>
+                        <td th:text="${todosContactos.email}"></td>
+                        <td th:text="${todosContactos.fechaNacimiento}"></td>
+                        <td th:text="${todosContactos.fechaRegistro}"></td>
+                        <td>
+                            <a th:href="@{/editar/{id}(id=${todosContactos.id_agenda})}" class="btn btn-info"> Editar  </a>
+                            <a th:href="@{/eliminar/{id}(id=${todosContactos.id_agenda})}" class="btn btn-danger"> Eliminar </a>
+                        </td>
+                    </tr>
+                    
+                </tbody>
+               
+                
+            </table>
+            
+            <a href="/nueva" class="btn btn-info"> Nuevo contacto </a>
+        </div>
+        
+        
+    </body>
+</html>

@@ -25,13 +25,13 @@ public class AgendaContactos {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id_agenda;
     
-    @Column(name ="Nombre", nullable = false)
+    @Column(name ="Nombre", nullable = true)
     private String nombre;
     
-    @Column(name ="Apellido", nullable = false)
+    @Column(name ="Apellido", nullable = true)
     private String apellido;
     
-    @Column(name ="Email", nullable = false, unique = true)
+    @Column(name ="Email", nullable = true, unique = true)
     private String email;
     
     @Column(name ="fecha Nacimiento")

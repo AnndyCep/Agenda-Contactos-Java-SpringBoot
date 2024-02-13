@@ -5,8 +5,9 @@ import com.agendaContactos.entities.AgendaContactos;
 import com.agendaContactos.repository.ContactoRepositorio;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-
+@Service
 public class AgendaServicioImp implements AgendaServicio{
     
     
