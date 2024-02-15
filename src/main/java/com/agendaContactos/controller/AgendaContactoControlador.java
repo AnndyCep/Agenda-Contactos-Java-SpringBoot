@@ -6,6 +6,7 @@ import com.agendaContactos.entities.AgendaContactos;
 import com.agendaContactos.service.AgendaServicio;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,10 +24,11 @@ public class AgendaContactoControlador {
     private AgendaServicio servicio;
     //Ller los datos
     @GetMapping
-    public String leerTodosContactos(Model model){
+    public String leerTodosContactos(Model model, @Param("palabraCalve") String palabraClave ){
+        List<AgendaContactos> todosContactos = servicio.listarTodos(palabraClave);
         
-        List<AgendaContactos> todosContactos = servicio.listarTodos();
         model.addAttribute("listacontactos", todosContactos);
+        model.addAttribute("palabraClave", palabraClave);
         
         return "index";
     }

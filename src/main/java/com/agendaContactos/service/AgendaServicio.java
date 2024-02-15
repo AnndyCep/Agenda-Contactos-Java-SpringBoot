@@ -8,7 +8,7 @@ public interface AgendaServicio {
     
     //Creamos la interfaz para crear los metodos logicos que tendra el programa
     //leer todos los contactos
-    List<AgendaContactos> listarTodos();
+    List<AgendaContactos> listarTodos(String palabraClave);
     
     //Encontrar un contacto
     AgendaContactos encontrarContacto(int id);

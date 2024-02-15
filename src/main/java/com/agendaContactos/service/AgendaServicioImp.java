@@ -15,7 +15,10 @@ public class AgendaServicioImp implements AgendaServicio{
     private ContactoRepositorio repositorio;
     
     @Override
-    public List<AgendaContactos> listarTodos() {
+    public List<AgendaContactos> listarTodos(String palabraClave) {
+        if (palabraClave != null) {
+            return repositorio.findAll(palabraClave);
+        } 
         return repositorio.findAll();
     }
 
